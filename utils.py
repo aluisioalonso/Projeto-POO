@@ -227,11 +227,13 @@ def crud_stocks():
                 value = float(input("New value: "))
                 if value <= 0:
                     print('You do not put negatives values')
+                else:
+                    db.update_stock(sid_i, name, code, value)
+                    print("Stock updated.")
             except:
                 print("Invalid value.")
                 continue
-            db.update_stock(sid_i, name, code, value)
-            print("Stock updated.")
+
         elif op == "4":
             try:
                 sid_i = int(input("Stock ID to delete: "))
